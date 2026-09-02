@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu web y tu CRM inmobiliario — Propuesta</title>
+
+<!--
+  ============================================================================
+  ANTES DE ENVIAR — reemplazar todos los PON_AQUI_*
+
+    PON_AQUI_URL_LOGO ......... logo de Be Banana (URL de filesafe)
+    PON_AQUI_EMAIL ............ email de contacto de Be Banana
+    PON_AQUI_WEB .............. web de Be Banana
+    PON_AQUI_LINK_CALENDARIO .. enlace para agendar la reunión de revisión
+    PON_AQUI_PRECIO_IMPLANTACION
+    PON_AQUI_PRECIO_MENSUAL
+    PON_AQUI_PRECIO_A / _B / _C  (opciones de Fase 2)
+
+  PRECIO BASE DEL EQUIPO (sin margen). Multiplicar por (1 + margen):
+    Implantación .......... 4.550 EUR        Mensualidad ....... 175 EUR
+    Opción A · Matching ...... 300 EUR
+    Opción B · Reseñas ....... 250 EUR
+    Opción C · Campañas .... 1.750 EUR  (+ 165 EUR/mes)
+  Detalle y escenarios de margen en alcance-y-cotizacion.md
+
+  Si Be Banana tiene paleta propia, cambiar SOLO los valores del bloque :root.
+  Nunca escribir un color suelto fuera de ahí.
+  ============================================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  /* Profit · macroestructura: documento-largo · cliente: irene */
+  /* Profit · crítica: J4 E4 H5 R4 V4 */
+
+  :root {
+    --pt-navy:#0A1930; --pt-navy-2:#122946;
+    --pt-ink:#13253C; --pt-muted:#5B6B7C;
+    --pt-accent:#6FE3A5; --pt-accent-dark:#2E9E68;
+    --pt-paper:#F7F9FB; --pt-card:#FFFFFF; --pt-line:#DFE6ED;
+    --pt-azul:#DBEAFE; --pt-verde:#DCFCE7; --pt-amarillo:#FEF9C3;
+    --pt-rojo:#FEE2E2; --pt-morado:#F3E8FF; --pt-gris:#F3F4F6;
+    --pt-body-2:#33415C;
+    --pt-font-display:'Space Grotesk',sans-serif;
+    --pt-font-body:'Inter',sans-serif;
+    --pt-font-mono:'IBM Plex Mono',monospace;
+    --pt-s1:4px; --pt-s2:8px; --pt-s3:12px; --pt-s4:16px;
+    --pt-s5:24px; --pt-s6:32px; --pt-s7:48px; --pt-s8:64px;
+    --pt-pad-x:clamp(20px,5vw,72px); --pt-pad-y:clamp(36px,5vw,64px);
+    --pt-maxw:1180px; --pt-prose:68ch;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+
+  /* ===== 1. Reset del contenedor del builder de GHL ===== */
+  html, body {
+    background:#fff !important;
+    margin:0 !important; padding:0 !important;
+    overflow-x:clip !important;
+    width:100% !important; max-width:100% !important;
+  }
+  #app, .hl_page-preview, .c-section, .c-row, .c-column, .c-wrapper,
+  .container, .content, .fullSection, .innerSection,
+  [class*="c-section"], [class*="c-row"], [class*="c-column"] {
+    background:transparent !important; background-color:transparent !important;
+    padding:0 !important; margin-left:0 !important; margin-right:0 !important;
+    max-width:100% !important; width:100% !important; border:0 !important;
+  }
+
+  body {
+    font-family:var(--pt-font-body);
+    color:var(--pt-ink);
+    font-size:clamp(14.5px,1.05vw,16px);
+    line-height:1.7;
+  }
+
+  /* ===== 2. Full-bleed ===== */
+  .page {
+    position:relative;
+    width:100vw; max-width:100vw;
+    margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+    background:var(--pt-card);
+  }
+
+  /* ===== 3. Wrap centrado ===== */
+  .pt-wrap { max-width:var(--pt-maxw); margin:0 auto; width:100%; }
+  .pt-section { padding:var(--pt-pad-y) var(--pt-pad-x); }
+  .pt-section--paper { background:var(--pt-paper); }
+  .pt-section--rule { border-top:1px solid var(--pt-line); }
+  img { max-width:100%; height:auto; }
+
+  /* ===== 4. Tipografía y bloques ===== */
+  .pt-label {
+    font-family:var(--pt-font-mono);
+    font-size:11px; font-weight:600; letter-spacing:2px;
+    text-transform:uppercase; color:var(--pt-accent-dark);
+    margin-bottom:var(--pt-s3);
+  }
+  .pt-num {
+    font-family:var(--pt-font-mono); font-size:12px; font-weight:600;
+    color:var(--pt-muted); letter-spacing:1px; display:block;
+    margin-bottom:var(--pt-s2);
+  }
+  .pt-section h2 {
+    font-family:var(--pt-font-display);
+    font-size:clamp(21px,2.2vw,30px); font-weight:700;
+    color:var(--pt-navy); line-height:1.22; margin-bottom:var(--pt-s5);
+    overflow-wrap:anywhere; min-width:0; font-style:normal;
+  }
+  .pt-section h3 {
+    font-family:var(--pt-font-display); font-size:clamp(16px,1.4vw,19px);
+    font-weight:700; color:var(--pt-navy); line-height:1.3;
+    margin:var(--pt-s6) 0 var(--pt-s3); font-style:normal;
+  }
+  .pt-section p { margin-bottom:var(--pt-s4); color:var(--pt-body-2); max-width:var(--pt-prose); }
+  .pt-section p.pt-lead { font-size:clamp(16px,1.35vw,19px); color:var(--pt-ink); }
+  .pt-section ul { margin:0 0 var(--pt-s4) 20px; color:var(--pt-body-2); max-width:var(--pt-prose); }
+  .pt-section li { margin-bottom:var(--pt-s2); }
+  strong { color:var(--pt-ink); }
+
+  /* HEADER */
+  .pt-header {
+    background:linear-gradient(135deg,var(--pt-navy) 0%,var(--pt-navy-2) 100%);
+    color:var(--pt-card);
+    padding:var(--pt-pad-y) var(--pt-pad-x) calc(var(--pt-pad-y) * .8);
+  }
+  .pt-header .pt-brand img { height:clamp(30px,3.2vw,42px); width:auto; display:block; margin-bottom:var(--pt-s8); }
+  .pt-header h1 {
+    font-family:var(--pt-font-display); font-size:clamp(26px,3.4vw,44px);
+    font-weight:700; line-height:1.12; margin-bottom:var(--pt-s4);
+    overflow-wrap:anywhere; min-width:0; font-style:normal; max-width:18ch;
+  }
+  .pt-header h1 span { color:var(--pt-accent); }
+  .pt-header .pt-sub { opacity:.8; max-width:58ch; font-size:clamp(14px,1.15vw,17px); }
+  .pt-meta {
+    font-family:var(--pt-font-mono); font-size:11px; letter-spacing:1.5px;
+    text-transform:uppercase; opacity:.55; margin-top:var(--pt-s7);
+  }
+
+  /* ÍNDICE */
+  .pt-toc { background:var(--pt-paper); border-bottom:1px solid var(--pt-line); }
+  .pt-toc ol { list-style:none; margin:0; columns:2; column-gap:var(--pt-s8); }
+  .pt-toc li { margin-bottom:var(--pt-s2); break-inside:avoid; }
+  .pt-toc a {
+    color:var(--pt-body-2); text-decoration:none; font-size:14px;
+    display:flex; align-items:baseline; gap:var(--pt-s3);
+    padding:3px 0; border-bottom:1px solid transparent;
+  }
+  .pt-toc a i {
+    font-family:var(--pt-font-mono); font-style:normal; font-size:11px;
+    color:var(--pt-muted); min-width:20px;
+  }
+  .pt-toc a:hover { color:var(--pt-navy); border-bottom-color:var(--pt-line); }
+  .pt-toc a:focus-visible { outline:2px solid var(--pt-accent-dark); outline-offset:2px; }
+  @media (max-width:720px) { .pt-toc ol { columns:1; } }
+
+  /* TABLAS */
+  .pt-tablewrap { overflow-x:auto; margin-bottom:var(--pt-s5); -webkit-overflow-scrolling:touch; }
+  table.pt-t { border-collapse:collapse; width:100%; min-width:520px; font-size:14px; }
+  table.pt-t th {
+    text-align:left; font-family:var(--pt-font-mono); font-size:10.5px;
+    letter-spacing:1.2px; text-transform:uppercase; color:var(--pt-muted);
+    font-weight:600; padding:0 var(--pt-s4) var(--pt-s3) 0;
+    border-bottom:1px solid var(--pt-line); white-space:nowrap;
+  }
+  table.pt-t td {
+    padding:var(--pt-s4) var(--pt-s4) var(--pt-s4) 0;
+    border-bottom:1px solid var(--pt-line);
+    vertical-align:top; color:var(--pt-body-2);
+  }
+  table.pt-t td:first-child { color:var(--pt-ink); font-weight:600; }
+  table.pt-t tr:last-child td { border-bottom:0; }
+
+  /* FICHA: rejilla de campos */
+  .pt-fields { display:flex; flex-wrap:wrap; gap:var(--pt-s2); margin-bottom:var(--pt-s5); }
+  .pt-chip {
+    font-size:13px; padding:6px 13px; border-radius:999px;
+    background:var(--pt-paper); border:1px solid var(--pt-line); color:var(--pt-body-2);
+  }
+  .pt-chip.is-key { background:var(--pt-verde); border-color:var(--pt-accent); color:var(--pt-ink); font-weight:600; }
+  .pt-section--paper .pt-chip { background:var(--pt-card); }
+
+  /* PASOS */
+  .pt-steps { list-style:none; margin:0 0 var(--pt-s5); counter-reset:s; max-width:var(--pt-prose); }
+  .pt-steps li {
+    counter-increment:s; position:relative; padding-left:44px;
+    margin-bottom:var(--pt-s5); color:var(--pt-body-2);
+  }
+  .pt-steps li::before {
+    content:counter(s); position:absolute; left:0; top:1px;
+    width:28px; height:28px; border-radius:50%;
+    background:var(--pt-navy); color:var(--pt-card);
+    font-family:var(--pt-font-mono); font-size:12px; font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pt-steps b { display:block; color:var(--pt-ink); margin-bottom:2px; }
+
+  /* FUERA DE ALCANCE */
+  .pt-out { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); gap:var(--pt-s5) var(--pt-s7); }
+  .pt-out h4 {
+    font-family:var(--pt-font-mono); font-size:11px; letter-spacing:1.4px;
+    text-transform:uppercase; color:var(--pt-muted); font-weight:600;
+    margin-bottom:var(--pt-s3); padding-bottom:var(--pt-s2);
+    border-bottom:1px solid var(--pt-line);
+  }
+  .pt-out ul { list-style:none; margin:0; font-size:14px; }
+  .pt-out li { margin-bottom:6px; color:var(--pt-body-2); }
+
+  /* NOTA */
+  .pt-note {
+    background:var(--pt-paper); border-left:2px solid var(--pt-accent-dark);
+    padding:var(--pt-s5) var(--pt-s6); margin:var(--pt-s6) 0; max-width:var(--pt-prose);
+  }
+  .pt-section--paper .pt-note { background:var(--pt-card); }
+  .pt-note p:last-child { margin-bottom:0; }
+
+  /* OPCIONES FASE 2 */
+  .pt-opt { border-top:1px solid var(--pt-line); padding:var(--pt-s6) 0; max-width:var(--pt-prose); }
+  .pt-opt:last-of-type { border-bottom:1px solid var(--pt-line); }
+  .pt-opt-head { display:flex; align-items:baseline; justify-content:space-between; gap:var(--pt-s5); flex-wrap:wrap; }
+  .pt-opt h3 { margin:0 0 var(--pt-s3); }
+  .pt-opt .pt-optprice {
+    font-family:var(--pt-font-mono); font-size:14px; font-weight:600;
+    color:var(--pt-navy); font-variant-numeric:tabular-nums; overflow-wrap:anywhere;
+  }
+
+  /* INVERSIÓN */
+  .pt-invest { background:var(--pt-navy); color:var(--pt-card); padding:var(--pt-pad-y) var(--pt-pad-x); }
+  .pt-invest h2 { color:var(--pt-card); }
+  .pt-invest p { color:rgba(255,255,255,.72); max-width:var(--pt-prose); }
+  .pt-invest strong { color:var(--pt-card); }
+  .pt-invest .pt-label { color:var(--pt-accent); }
+  .pt-prices { display:flex; gap:var(--pt-s5); margin:var(--pt-s7) 0 var(--pt-s5); }
+  .pt-price {
+    flex:1 1 0; min-width:0;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14);
+    border-radius:12px; padding:26px 24px;
+  }
+  .pt-price.is-main { border-color:var(--pt-accent); background:rgba(111,227,165,.08); }
+  .pt-price .lab {
+    font-family:var(--pt-font-mono); font-size:10.5px; text-transform:uppercase;
+    letter-spacing:1.4px; opacity:.7; margin-bottom:var(--pt-s3);
+  }
+  .pt-price .val {
+    font-family:var(--pt-font-display); font-size:clamp(28px,2.8vw,40px);
+    font-weight:700; font-variant-numeric:tabular-nums; line-height:1.05;
+    overflow-wrap:anywhere; min-width:0;
+  }
+  .pt-price .note { font-size:12.5px; opacity:.6; margin-top:var(--pt-s3); }
+  .pt-cta {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--pt-accent); color:var(--pt-navy);
+    font-weight:700; font-size:15px; padding:15px 38px; border-radius:999px;
+    text-decoration:none; white-space:nowrap; line-height:1;
+    box-shadow:0 6px 20px rgba(111,227,165,.24);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .pt-cta:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(111,227,165,.34); }
+  .pt-cta:focus-visible { outline:3px solid var(--pt-accent); outline-offset:3px; }
+  .pt-cta:active { transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .pt-cta, .pt-cta:hover { transition:none; transform:none; } }
+
+  /* FOOTER */
+  .pt-footer { background:var(--pt-navy-2); color:rgba(255,255,255,.6); padding:28px var(--pt-pad-x); font-size:13px; }
+  .pt-footer .pt-wrap { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--pt-s4); }
+  .pt-footer strong { color:var(--pt-card); }
+
+  /* ===== 5. Responsive ===== */
+  @media (max-width:1024px) { .pt-prices { gap:var(--pt-s4); } }
+  @media (max-width:720px) {
+    body { font-size:15px; }
+    .pt-prices { flex-direction:column; }
+    .pt-cta { display:block; width:100%; text-align:center; padding:16px 20px; }
+    .pt-footer .pt-wrap { flex-direction:column; align-items:flex-start; }
+    .pt-opt-head { gap:var(--pt-s2); }
+  }
+  @media (max-width:400px) {
+    .pt-price .val { font-size:26px; }
+    .pt-header h1 { font-size:24px; }
+  }
+  @media print {
+    .pt-header, .pt-invest, .pt-footer, .pt-steps li::before {
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .pt-toc { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <div class="pt-header">
+    <div class="pt-wrap">
+      <div class="pt-brand"><img src="PON_AQUI_URL_LOGO" alt="Be Banana"></div>
+      <h1>Tu web y tu CRM <span>inmobiliario</span></h1>
+      <p class="pt-sub">Que quien te busque a ti te encuentre a ti. Y que cada propiedad, cada comprador y cada visita estén en un solo sitio, sin que tengas que acordarte de nada.</p>
+      <div class="pt-meta">Propuesta para Irene · Septiembre 2026</div>
+    </div>
+  </div>
+
+  <!-- ══ ÍNDICE ══ -->
+  <div class="pt-section pt-toc">
+    <div class="pt-wrap">
+      <div class="pt-label">Índice</div>
+      <ol>
+        <li><a href="#s1"><i>01</i> El punto de partida</a></li>
+        <li><a href="#s2"><i>02</i> Qué construimos</a></li>
+        <li><a href="#s3"><i>03</i> Las páginas de tu web</a></li>
+        <li><a href="#s4"><i>04</i> La ficha de cada propiedad</a></li>
+        <li><a href="#s5"><i>05</i> Cómo subes y retiras propiedades</a></li>
+        <li><a href="#s6"><i>06</i> Tu CRM</a></li>
+        <li><a href="#s7"><i>07</i> Lo que funciona solo</a></li>
+        <li><a href="#s8"><i>08</i> Qué no incluye</a></li>
+        <li><a href="#s9"><i>09</i> Cómo se pide un cambio</a></li>
+        <li><a href="#s10"><i>10</i> Qué necesitamos de ti</a></li>
+        <li><a href="#s11"><i>11</i> Suscripciones a tu cargo</a></li>
+        <li><a href="#s12"><i>12</i> Cuándo está listo</a></li>
+        <li><a href="#s13"><i>13</i> Para más adelante</a></li>
+        <li><a href="#s14"><i>14</i> Inversión</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ══ 01 ══ -->
+  <div class="pt-section" id="s1">
+    <div class="pt-wrap">
+      <span class="pt-num">01</span>
+      <h2>El punto de partida</h2>
+      <p class="pt-lead">Llevas veinte años en esto y tus clientes te buscan a ti, no a la agencia en la que estuvieras ese año. El problema es que ahora mismo, cuando te buscan, no siempre te encuentran.</p>
+      <p>Ha pasado: alguien que compró contigo hace años llama a una agencia donde ya no trabajas, pregunta por ti, y nadie le dice dónde estás. Esa venta existía y se perdió por no tener un sitio al que apuntar.</p>
+      <p>A la vez tienes el problema contrario al de casi todo el mundo: <strong>compradores no te faltan, te falta inventario</strong>. Y las herramientas que hay para conseguirlo son caras y no gestionan nada — quinientos euros al mes por publicar cinco casas y que los contactos te lleguen sueltos al correo.</p>
+      <p>Esta propuesta resuelve esas dos cosas: una web con tu nombre a la que puedas apuntar desde tus tarjetas, y un sistema donde cada propiedad y cada persona interesada quedan registradas y se les hace seguimiento solo.</p>
+    </div>
+  </div>
+
+  <!-- ══ 02 ══ -->
+  <div class="pt-section pt-section--paper" id="s2">
+    <div class="pt-wrap">
+      <span class="pt-num">02</span>
+      <h2>Qué construimos</h2>
+      <p>Tres cosas que funcionan como una sola:</p>
+      <ol class="pt-steps">
+        <li><b>Tu web, con tu listado de propiedades</b>Siete páginas, con buscador y filtros por precio, zona, garaje, piscina y número de baños. Cada vivienda con su ficha, su galería de fotos y su botón de solicitar visita.</li>
+        <li><b>Tu CRM</b>Dos circuitos separados: uno para captar viviendas y otro para tus compradores. Cada contacto sabe de dónde vino y en qué punto está.</li>
+        <li><b>Las automatizaciones</b>Confirmaciones, recordatorios de visita, avisos cuando entra un propietario interesado en vender, y seguimiento de los contactos que aún no te han contestado.</li>
+      </ol>
+      <div class="pt-note">
+        <p><strong>Una aclaración importante sobre el listado.</strong> Existe una forma más barata de montar un listado de propiedades: usar el módulo de tienda, el mismo con el que se venden productos. Lo hemos descartado a propósito.</p>
+        <p>Ese módulo solo sabe filtrar por precio y disponibilidad. Garaje, piscina y número de baños quedarían escritos dentro del texto de la descripción, no como datos — y por tanto no se podría filtrar por ellos. Como la gente busca casa justamente así, construimos el listado a medida. Cuesta algo más y no queda ni rastro de carrito ni de tienda en tu web.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 03 ══ -->
+  <div class="pt-section" id="s3">
+    <div class="pt-wrap">
+      <span class="pt-num">03</span>
+      <h2>Las páginas de tu web</h2>
+      <p>Estas son todas. Si una página no está en esta tabla, no está incluida.</p>
+      <div class="pt-tablewrap">
+        <table class="pt-t">
+          <thead><tr><th>Página</th><th>Qué lleva</th></tr></thead>
+          <tbody>
+            <tr><td>Inicio</td><td>Tu nombre y tu trayectoria, propiedades destacadas, acceso al listado, bloque para quien quiere vender, y contacto</td></tr>
+            <tr><td>Propiedades</td><td>El listado completo: rejilla, buscador, orden y filtros por precio, zona, garaje, piscina y número de baños</td></tr>
+            <tr><td>Ficha de propiedad</td><td>Galería de fotos, precio y zona, características, descripción, situación, botón de solicitar visita y WhatsApp</td></tr>
+            <tr><td>Sobre mí</td><td>Tus veinte años. Es la página que hace que quien busque tu nombre llegue hasta ti</td></tr>
+            <tr><td>Vende tu propiedad</td><td>Por qué vender contigo, y formulario de valoración gratuita</td></tr>
+            <tr><td>Contacto</td><td>Formulario, WhatsApp y calendario para agendar directamente</td></tr>
+            <tr><td>Alta de propiedad</td><td>Tu página privada para subir y editar viviendas. Explicada en el punto 05</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Además maquetamos y publicamos el <strong>aviso legal, la política de privacidad y la política de cookies</strong> sin coste de diseño. Los textos los tiene que redactar tu asesor legal, no nosotros.</p>
+      <p>Cada página incluye <strong>dos rondas de revisión</strong> de diseño.</p>
+    </div>
+  </div>
+
+  <!-- ══ 04 ══ -->
+  <div class="pt-section pt-section--paper" id="s4">
+    <div class="pt-wrap">
+      <span class="pt-num">04</span>
+      <h2>La ficha de cada propiedad</h2>
+      <p>Cada vivienda guarda estos datos. Los tres marcados son los que nos pediste expresamente, y son los que hacen que el filtro del listado funcione:</p>
+      <div class="pt-fields">
+        <span class="pt-chip">Referencia</span>
+        <span class="pt-chip">Título</span>
+        <span class="pt-chip">Precio</span>
+        <span class="pt-chip is-key">Garaje</span>
+        <span class="pt-chip is-key">Piscina</span>
+        <span class="pt-chip is-key">Nº de baños</span>
+        <span class="pt-chip">Zona</span>
+        <span class="pt-chip">Tipo de inmueble</span>
+        <span class="pt-chip">Nº de habitaciones</span>
+        <span class="pt-chip">Metros construidos</span>
+        <span class="pt-chip">Descripción</span>
+        <span class="pt-chip">Estado</span>
+        <span class="pt-chip">Fotos</span>
+        <span class="pt-chip">Certificado energético</span>
+        <span class="pt-chip">Propietario</span>
+      </div>
+      <p><strong>Estado</strong> es el que controla qué se ve: borrador, publicada, reservada, vendida o retirada. Cuando marcas una como vendida desaparece del listado, pero no se borra — te queda el histórico de lo que has cerrado.</p>
+      <p><strong>Propietario</strong> enlaza la vivienda con la persona que te la encargó, así que desde su ficha ves siempre qué inmuebles suyos llevas.</p>
+      <div class="pt-note">
+        <p>Los campos que no marcamos arriba son nuestra propuesta de partida. En la reunión de revisión los repasamos contigo: si sobra alguno o falta alguno de los que usas a diario, se ajusta antes de construir nada.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 05 ══ -->
+  <div class="pt-section" id="s5">
+    <div class="pt-wrap">
+      <span class="pt-num">05</span>
+      <h2>Cómo subes, editas y retiras una propiedad</h2>
+      <p class="pt-lead">Lo haces tú, desde una página tuya, sin depender de nadie y sin tocar nada técnico.</p>
+      <ol class="pt-steps">
+        <li><b>Entras en tu página de alta</b>Está dentro de tu propio dominio, en una dirección que no aparece en el menú ni sale en Google. Solo la tienes tú.</li>
+        <li><b>Rellenas el formulario</b>Los datos de la vivienda paso a paso, y arrastras las fotos.</li>
+        <li><b>Se publica sola</b>El sistema prepara las fotos, crea la ficha y la mete en el listado. No hay que avisar a nadie ni esperar a que lo hagamos nosotros.</li>
+        <li><b>Para editarla, el mismo formulario</b>Pones la referencia de la vivienda y actualizas lo que sea: bajada de precio, fotos nuevas, o marcarla como vendida para que salga del listado.</li>
+      </ol>
+      <p>En la formación cargamos juntas <strong>las cinco primeras propiedades</strong>, y en esa misma sesión subes tú una sexta de principio a fin. A partir de ahí es tuyo.</p>
+    </div>
+  </div>
+
+  <!-- ══ 06 ══ -->
+  <div class="pt-section pt-section--paper" id="s6">
+    <div class="pt-wrap">
+      <span class="pt-num">06</span>
+      <h2>Tu CRM</h2>
+      <p>Dos circuitos, porque captar una vivienda y vender a un comprador no se parecen en nada:</p>
+      <h3>Captación de viviendas</h3>
+      <p>Nuevo propietario → Valoración agendada → Mandato firmado → Publicada → Vendida o perdida</p>
+      <p>Es el circuito de tu problema real. Cada propietario que pide una valoración entra aquí y no se queda en un correo sin contestar.</p>
+      <h3>Compradores</h3>
+      <p>Nuevo lead → Cualificado → Visita agendada → Oferta o reserva → Cerrado</p>
+      <p>Con lo que busca cada uno: zona, presupuesto, habitaciones, si necesita garaje o piscina. Eso es lo que después permite avisar al comprador adecuado cuando entra la vivienda que encaja.</p>
+      <p>Y dos vistas preparadas para el día a día: <strong>propiedades publicadas</strong> y <strong>visitas de esta semana</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ══ 07 ══ -->
+  <div class="pt-section" id="s7">
+    <div class="pt-wrap">
+      <span class="pt-num">07</span>
+      <h2>Lo que funciona solo</h2>
+      <p>Seis automatizaciones. Estas y no más — cualquier otra se cotiza aparte.</p>
+      <div class="pt-tablewrap">
+        <table class="pt-t">
+          <thead><tr><th>Cuándo salta</th><th>Qué hace</th></tr></thead>
+          <tbody>
+            <tr><td>Alguien te escribe desde la web</td><td>Registra de dónde vino, lo mete en compradores, te avisa y le contesta al momento</td></tr>
+            <tr><td>Alguien pide visitar una vivienda</td><td>Vincula esa persona con esa propiedad concreta, te avisa con la referencia y le manda el enlace para agendar</td></tr>
+            <tr><td>Alguien pide una valoración</td><td>Entra en captación con aviso prioritario, porque eso es inventario, y recibe tu calendario</td></tr>
+            <tr><td>Marcas un contacto como particular a prospectar</td><td>Lanza la secuencia de contacto y seguimiento, con opción de darse de baja en cada mensaje</td></tr>
+            <tr><td>Subes o actualizas una propiedad</td><td>Prepara las fotos, publica la ficha y actualiza el listado</td></tr>
+            <tr><td>Se agenda una visita</td><td>Confirma por email y SMS, recuerda 24 horas y 2 horas antes, envía la ficha y te avisa el día de la visita</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pt-note">
+        <p><strong>Sobre la idea de buscar particulares en Idealista automáticamente.</strong> Lo miramos en serio, y hay que decirlo claro: las condiciones de uso de Idealista prohíben expresamente extraer sus anuncios con fines comerciales, y recoger nombres y teléfonos de particulares para escribirles en frío tiene implicaciones de protección de datos que no queremos que recaigan sobre tu agencia recién montada.</p>
+        <p>Lo que sí hacemos es la parte que de verdad aporta valor: <strong>el seguimiento</strong>. Tú marcas el particular que hayas encontrado y el sistema se encarga del contacto, de los reintentos y de no perderlo. Y para conseguir viviendas de forma sostenida, la vía es la campaña del punto 13 — anunciarte a quien quiere vender.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 08 ══ -->
+  <div class="pt-section pt-section--paper" id="s8">
+    <div class="pt-wrap">
+      <span class="pt-num">08</span>
+      <h2>Qué no incluye</h2>
+      <p>Esta sección es tan importante como las anteriores. Nada de lo de aquí abajo está en el precio. Que esté fuera no significa que no podamos hacerlo: significa que tiene su propio precio y su propio plazo.</p>
+      <div class="pt-out">
+        <div>
+          <h4>Portales</h4>
+          <ul>
+            <li>Publicar en Idealista, Fotocasa o Habitaclia</li>
+            <li>Envío automático de tu catálogo a portales</li>
+            <li>MLS e IDX</li>
+            <li>Extracción automática de anuncios</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contenido</h4>
+          <ul>
+            <li>Fotografía, vídeo y tour virtual</li>
+            <li>Planos y home staging</li>
+            <li>Redacción de las descripciones</li>
+            <li>Redacción de los textos legales</li>
+            <li>Certificado energético</li>
+            <li>Versión en otros idiomas</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Funcionalidad</h4>
+          <ul>
+            <li>Firma electrónica de mandatos</li>
+            <li>Aviso automático al comprador que encaja</li>
+            <li>Gestión de reseñas</li>
+            <li>Paneles de informes</li>
+            <li>Área privada para propietarios</li>
+            <li>Aplicación móvil</li>
+            <li>Cobros online</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Marketing</h4>
+          <ul>
+            <li>Campañas de pago y creatividades</li>
+            <li>La inversión publicitaria</li>
+            <li>Posicionamiento continuo en Google</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Operación</h4>
+          <ul>
+            <li>Subir más de cinco propiedades por nuestra parte</li>
+            <li>Soporte fuera del horario acordado</li>
+            <li>Revisiones de diseño a partir de la tercera</li>
+            <li>Migración de datos antiguos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 09 ══ -->
+  <div class="pt-section" id="s9">
+    <div class="pt-wrap">
+      <span class="pt-num">09</span>
+      <h2>Cómo se pide un cambio</h2>
+      <ol class="pt-steps">
+        <li><b>Nos lo pides por escrito</b>Un mensaje basta. Que quede registrado.</li>
+        <li><b>Te contestamos en 48 horas hábiles</b>Con lo que cuesta y si mueve la fecha de entrega.</li>
+        <li><b>Lo hacemos cuando nos das el visto bueno</b>No antes, para que nunca te llegue una factura que no esperabas.</li>
+      </ol>
+      <p>No volvemos a cobrarte el proyecto: te cobramos el cambio.</p>
+    </div>
+  </div>
+
+  <!-- ══ 10 ══ -->
+  <div class="pt-section pt-section--paper" id="s10">
+    <div class="pt-wrap">
+      <span class="pt-num">10</span>
+      <h2>Qué necesitamos de ti</h2>
+      <p>Sin esto el proyecto se para, así que mejor tenerlo antes de empezar:</p>
+      <ul>
+        <li>Tu logo y tu marca en formato editable</li>
+        <li>Las fotos de las propiedades</li>
+        <li>Las descripciones de las viviendas</li>
+        <li>Los textos legales, redactados por tu asesor</li>
+        <li>El dominio contratado y acceso a su panel</li>
+        <li>Tu WhatsApp Business y tu correo corporativo</li>
+        <li>Un rato tuyo para validar cada entrega en plazo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 11 ══ -->
+  <div class="pt-section" id="s11">
+    <div class="pt-wrap">
+      <span class="pt-num">11</span>
+      <h2>Suscripciones a tu cargo</h2>
+      <p>Lo decimos claro para que «todo incluido» no signifique lo que no significa. Estas cuotas van a tu nombre y no están dentro del precio de implantación:</p>
+      <ul>
+        <li>La plataforma donde vive tu CRM y tu web</li>
+        <li>Tu dominio</li>
+        <li>El motor de automatizaciones</li>
+        <li>WhatsApp y telefonía</li>
+        <li>El envío de correos</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 12 ══ -->
+  <div class="pt-section pt-section--paper" id="s12">
+    <div class="pt-wrap">
+      <span class="pt-num">12</span>
+      <h2>Cuándo está listo</h2>
+      <p>Sabemos que corre prisa porque quieres la dirección en tus tarjetas. Damos la fecha cerrada en la reunión de revisión, cuando confirmemos contigo los detalles del punto 04 — antes sería inventárnosla.</p>
+      <p>Lo que sí podemos comprometer es el orden: <strong>primero lo que te hace localizable</strong> —inicio, sobre ti y contacto, publicadas en tu dominio— y después el listado y las automatizaciones. Así puedes mandar a imprimir las tarjetas sin esperar a que esté todo.</p>
+      <h3>Damos la Fase 1 por entregada cuando</h3>
+      <ul>
+        <li>Las siete páginas están publicadas en tu dominio, con certificado de seguridad</li>
+        <li>Hay cinco propiedades cargadas y visibles, con sus fotos</li>
+        <li>Tú das de alta una sexta por ti misma durante la formación</li>
+        <li>Las seis automatizaciones se han probado de principio a fin</li>
+        <li>Has recibido las dos sesiones de formación</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 13 ══ -->
+  <div class="pt-section" id="s13">
+    <div class="pt-wrap">
+      <span class="pt-num">13</span>
+      <h2>Para más adelante</h2>
+      <p>No hace falta decidirlo ahora, y no está incluido en el precio. Lo ponemos para que sepas que existe y cuánto costaría cuando lo quieras.</p>
+
+      <div class="pt-opt">
+        <div class="pt-opt-head">
+          <h3>A · Avisar al comprador que encaja</h3>
+          <span class="pt-optprice">PON_AQUI_PRECIO_A</span>
+        </div>
+        <p>Cada comprador guarda lo que busca. Cuando subes una vivienda que encaja con lo que pidió, se le avisa solo. Es el complemento natural de tener compradores y poco inventario: hace que cada alta trabaje sobre la cartera que ya tienes.</p>
+      </div>
+
+      <div class="pt-opt">
+        <div class="pt-opt-head">
+          <h3>B · Reseñas</h3>
+          <span class="pt-optprice">PON_AQUI_PRECIO_B</span>
+        </div>
+        <p>Tras cada firma se pide la reseña sola, y te avisa cuando llega. Refuerza justo tu problema de origen: que quien busque tu nombre te encuentre, y encuentre a gente hablando bien de ti.</p>
+      </div>
+
+      <div class="pt-opt">
+        <div class="pt-opt-head">
+          <h3>C · Campañas para conseguir viviendas</h3>
+          <span class="pt-optprice">PON_AQUI_PRECIO_C</span>
+        </div>
+        <p>Esta es la que resuelve la falta de inventario de forma sostenida. La idea, que ya funciona con otra inmobiliaria con la que trabajamos, es contraintuitiva: en vez de anunciarte a quien quiere comprar, te anuncias <strong>a quien quiere vender</strong>. A quien responde que quiere vender se le cualifica en detalle; a quien solo quiere comprar o alquilar se le deriva directo, sin gastar esfuerzo.</p>
+        <p>Incluye la puesta en marcha, el cualificador por WhatsApp, la página de valoración y los informes. <strong>No incluye la inversión publicitaria</strong>, que va directamente de tu cuenta a la plataforma.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 14 · INVERSIÓN ══ -->
+  <div class="pt-invest" id="s14">
+    <div class="pt-wrap">
+      <div class="pt-label">Inversión</div>
+      <h2>Fase 1, precio cerrado</h2>
+      <p>Todo lo descrito en los puntos 03 al 07, con los criterios de entrega del punto 12.</p>
+      <div class="pt-prices">
+        <div class="pt-price is-main">
+          <div class="lab">Implantación</div>
+          <div class="val">PON_AQUI_PRECIO_IMPLANTACION</div>
+          <div class="note">Pago único</div>
+        </div>
+        <div class="pt-price">
+          <div class="lab">Mantenimiento</div>
+          <div class="val">PON_AQUI_PRECIO_MENSUAL</div>
+          <div class="note">Empieza cuando tu web sale a producción</div>
+        </div>
+      </div>
+      <p>Para ponerlo en contexto con tus propios números: en tu zona no hay vivienda por debajo de 400.000 €, y la comisión es del 10 al 12%. Una sola operación al mínimo de tu zona son entre 40.000 y 48.000 € de comisión.</p>
+      <p>Esta propuesta tiene una validez de <strong>30 días</strong>.</p>
+      <div style="margin-top:32px">
+        <a href="PON_AQUI_LINK_CALENDARIO" class="pt-cta" target="_blank" rel="noopener">Agendar la reunión de revisión →</a>
+      </div>
+      <p style="margin-top:24px;font-size:13.5px">En esa reunión repasamos esto punto por punto. Si algo sobra, se quita; si falta algo que usas a diario, se añade y se ajusta el precio antes de firmar nada.</p>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="pt-footer">
+    <div class="pt-wrap">
+      <div><strong>Be Banana</strong></div>
+      <div>PON_AQUI_EMAIL · PON_AQUI_WEB</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
