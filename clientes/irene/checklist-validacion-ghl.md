@@ -45,10 +45,12 @@ Detalle y fuentes: `../../docs/ghl-listado-inmobiliario.md`.
 
 ---
 
-## Antes de mandar la propuesta
+## Antes de mandarle la cotización a Sonia
 
-- [ ] Rellenar los `PON_AQUI_*` del HTML: logo y contacto de Be Banana, precios finales.
-- [ ] Decidir el margen (ver `alcance-y-cotizacion.md`).
-- [ ] Confirmar los $1.200 de "listado y ficha a medida".
-- [ ] Abrir el HTML en el navegador y revisarlo a 320, 375, 768, 1280 y 1920 px.
-- [ ] Releer el bloque "Qué no incluye" pensando en lo que Irene podría dar por supuesto.
+- [ ] Confirmar los $1.200 de "listado y ficha a medida" — mueve todos los importes.
+- [ ] Rellenar `PON_AQUI_URL_LOGO` y `PON_AQUI_LINK_CALENDARIO`.
+- [ ] Releer el bloque "Qué no incluye" pensando en lo que Irene podría dar por supuesto:
+      es la sección que evita el conflicto, y solo funciona si es específica de ella.
+
+Precios y voz del documento ya están cerrados: es la cotización de Profit Technology a
+Be Banana, en euros, sin el margen de Sonia dentro.

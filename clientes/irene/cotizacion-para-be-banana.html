@@ -3,29 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tu web y tu CRM inmobiliario — Propuesta</title>
+<title>Cotización — Web y CRM inmobiliario para Irene</title>
 
 <!--
   ============================================================================
-  ANTES DE ENVIAR — reemplazar todos los PON_AQUI_*
+  COTIZACIÓN DE PROFIT TECHNOLOGY A BE BANANA (Sonia).
+  NO es el documento que ve Irene. Los importes de aquí son NUESTRO precio a
+  Be Banana; el precio a la clienta final lo fija Sonia con su margen encima.
 
-    PON_AQUI_URL_LOGO ......... logo de Be Banana (URL de filesafe)
-    PON_AQUI_EMAIL ............ email de contacto de Be Banana
-    PON_AQUI_WEB .............. web de Be Banana
-    PON_AQUI_LINK_CALENDARIO .. enlace para agendar la reunión de revisión
-    PON_AQUI_PRECIO_IMPLANTACION
-    PON_AQUI_PRECIO_MENSUAL
-    PON_AQUI_PRECIO_A / _B / _C  (opciones de Fase 2)
+  Pendiente de reemplazar antes de enviar:
+    PON_AQUI_URL_LOGO ......... logo de Profit Technology (URL de filesafe)
+    PON_AQUI_LINK_CALENDARIO .. enlace para agendar la revisión del alcance
 
-  PRECIO BASE DEL EQUIPO (sin margen). Multiplicar por (1 + margen):
-    Implantación .......... 4.550 EUR        Mensualidad ....... 175 EUR
-    Opción A · Matching ...... 300 EUR
-    Opción B · Reseñas ....... 250 EUR
-    Opción C · Campañas .... 1.750 EUR  (+ 165 EUR/mes)
-  Detalle y escenarios de margen en alcance-y-cotizacion.md
-
-  Si Be Banana tiene paleta propia, cambiar SOLO los valores del bloque :root.
-  Nunca escribir un color suelto fuera de ahí.
+  Importes (reproducibles con ofertas/inmobiliaria-web-crm-v1/scope_fase1.py):
+    Fase 1 ......... 4.550 EUR implantación · 175 EUR/mes
+    Opción A ......... 300 EUR
+    Opción B ......... 250 EUR
+    Opción C ....... 1.750 EUR + 170 EUR/mes
+  Tipo declarado 1 USD = 0,87 EUR. Referencia interna con el 90% de Sonia:
+  8.600 EUR / 335 EUR mes. Ver clientes/irene/alcance-y-cotizacion.md
   ============================================================================
 -->
 
@@ -288,18 +284,17 @@
     }
     .pt-toc { display:none; }
   }
-</style>
-</head>
+</style></head>
 <body>
 <div class="page">
 
   <!-- ══ HEADER ══ -->
   <div class="pt-header">
     <div class="pt-wrap">
-      <div class="pt-brand"><img src="PON_AQUI_URL_LOGO" alt="Be Banana"></div>
-      <h1>Tu web y tu CRM <span>inmobiliario</span></h1>
-      <p class="pt-sub">Que quien te busque a ti te encuentre a ti. Y que cada propiedad, cada comprador y cada visita estén en un solo sitio, sin que tengas que acordarte de nada.</p>
-      <div class="pt-meta">Propuesta para Irene · Septiembre 2026</div>
+      <div class="pt-brand"><img src="PON_AQUI_URL_LOGO" alt="Profit Technology"></div>
+      <h1>Web y CRM inmobiliario <span>para Irene</span></h1>
+      <p class="pt-sub">El alcance cerrado y el precio del proyecto. Está escrito con este nivel de detalle a propósito: es lo que define hasta dónde llega el trabajo y evita que aparezcan extras a mitad de camino.</p>
+      <div class="pt-meta">Cotización para Be Banana · Septiembre 2026</div>
     </div>
   </div>
 
@@ -308,19 +303,19 @@
     <div class="pt-wrap">
       <div class="pt-label">Índice</div>
       <ol>
-        <li><a href="#s1"><i>01</i> El punto de partida</a></li>
+        <li><a href="#s1"><i>01</i> El proyecto</a></li>
         <li><a href="#s2"><i>02</i> Qué construimos</a></li>
-        <li><a href="#s3"><i>03</i> Las páginas de tu web</a></li>
-        <li><a href="#s4"><i>04</i> La ficha de cada propiedad</a></li>
-        <li><a href="#s5"><i>05</i> Cómo subes y retiras propiedades</a></li>
-        <li><a href="#s6"><i>06</i> Tu CRM</a></li>
-        <li><a href="#s7"><i>07</i> Lo que funciona solo</a></li>
+        <li><a href="#s3"><i>03</i> Las páginas del sitio</a></li>
+        <li><a href="#s4"><i>04</i> La ficha de propiedad</a></li>
+        <li><a href="#s5"><i>05</i> Cómo carga ella las propiedades</a></li>
+        <li><a href="#s6"><i>06</i> El CRM</a></li>
+        <li><a href="#s7"><i>07</i> Las automatizaciones</a></li>
         <li><a href="#s8"><i>08</i> Qué no incluye</a></li>
         <li><a href="#s9"><i>09</i> Cómo se pide un cambio</a></li>
-        <li><a href="#s10"><i>10</i> Qué necesitamos de ti</a></li>
-        <li><a href="#s11"><i>11</i> Suscripciones a tu cargo</a></li>
-        <li><a href="#s12"><i>12</i> Cuándo está listo</a></li>
-        <li><a href="#s13"><i>13</i> Para más adelante</a></li>
+        <li><a href="#s10"><i>10</i> Qué necesitamos de Irene</a></li>
+        <li><a href="#s11"><i>11</i> Suscripciones a su cargo</a></li>
+        <li><a href="#s12"><i>12</i> Entrega</a></li>
+        <li><a href="#s13"><i>13</i> Opciones de Fase 2</a></li>
         <li><a href="#s14"><i>14</i> Inversión</a></li>
       </ol>
     </div>
@@ -330,11 +325,11 @@
   <div class="pt-section" id="s1">
     <div class="pt-wrap">
       <span class="pt-num">01</span>
-      <h2>El punto de partida</h2>
-      <p class="pt-lead">Llevas veinte años en esto y tus clientes te buscan a ti, no a la agencia en la que estuvieras ese año. El problema es que ahora mismo, cuando te buscan, no siempre te encuentran.</p>
-      <p>Ha pasado: alguien que compró contigo hace años llama a una agencia donde ya no trabajas, pregunta por ti, y nadie le dice dónde estás. Esa venta existía y se perdió por no tener un sitio al que apuntar.</p>
-      <p>A la vez tienes el problema contrario al de casi todo el mundo: <strong>compradores no te faltan, te falta inventario</strong>. Y las herramientas que hay para conseguirlo son caras y no gestionan nada — quinientos euros al mes por publicar cinco casas y que los contactos te lleguen sueltos al correo.</p>
-      <p>Esta propuesta resuelve esas dos cosas: una web con tu nombre a la que puedas apuntar desde tus tarjetas, y un sistema donde cada propiedad y cada persona interesada quedan registradas y se les hace seguimiento solo.</p>
+      <h2>El proyecto</h2>
+      <p class="pt-lead">Irene lleva veinte años vendiendo para otras agencias y acaba de montar la suya. Sus clientes la buscan a ella, no a la agencia, y ahora mismo cuando la buscan no siempre la encuentran.</p>
+      <p>Esa es la urgencia real: está cerrando su marca y quiere una dirección web que poner en las tarjetas. Ya ha pasado que alguien que compró con ella llamó a una agencia donde ya no trabaja, preguntó por ella, y nadie le redirigió.</p>
+      <p>Y tiene el problema contrario al habitual: <strong>compradores no le faltan, le falta inventario</strong>. Menos de diez propiedades en cartera, y las herramientas del mercado son caras y no gestionan nada.</p>
+      <p>Este documento cubre las dos cosas: el sitio con su listado y el sistema donde cada propiedad y cada interesado quedan registrados con seguimiento automático.</p>
     </div>
   </div>
 
@@ -343,15 +338,14 @@
     <div class="pt-wrap">
       <span class="pt-num">02</span>
       <h2>Qué construimos</h2>
-      <p>Tres cosas que funcionan como una sola:</p>
       <ol class="pt-steps">
-        <li><b>Tu web, con tu listado de propiedades</b>Siete páginas, con buscador y filtros por precio, zona, garaje, piscina y número de baños. Cada vivienda con su ficha, su galería de fotos y su botón de solicitar visita.</li>
-        <li><b>Tu CRM</b>Dos circuitos separados: uno para captar viviendas y otro para tus compradores. Cada contacto sabe de dónde vino y en qué punto está.</li>
-        <li><b>Las automatizaciones</b>Confirmaciones, recordatorios de visita, avisos cuando entra un propietario interesado en vender, y seguimiento de los contactos que aún no te han contestado.</li>
+        <li><b>El sitio, con el listado de propiedades</b>Siete páginas, con buscador y filtros por precio, zona, garaje, piscina y número de baños. Cada vivienda con su ficha, su galería y su botón de solicitar visita.</li>
+        <li><b>El CRM</b>Dos circuitos separados: captación de viviendas y compradores. Cada contacto con su origen y su etapa.</li>
+        <li><b>Las automatizaciones</b>Confirmaciones, recordatorios de visita, avisos cuando entra un propietario que quiere vender, y seguimiento de quien no ha contestado.</li>
       </ol>
       <div class="pt-note">
-        <p><strong>Una aclaración importante sobre el listado.</strong> Existe una forma más barata de montar un listado de propiedades: usar el módulo de tienda, el mismo con el que se venden productos. Lo hemos descartado a propósito.</p>
-        <p>Ese módulo solo sabe filtrar por precio y disponibilidad. Garaje, piscina y número de baños quedarían escritos dentro del texto de la descripción, no como datos — y por tanto no se podría filtrar por ellos. Como la gente busca casa justamente así, construimos el listado a medida. Cuesta algo más y no queda ni rastro de carrito ni de tienda en tu web.</p>
+        <p><strong>Por qué no lo montamos con el módulo de tienda.</strong> Era la vía barata y la descartamos con motivo. Un formulario de la plataforma crea y actualiza fichas propias de forma nativa por clave única, pero no puede crear productos: eso obliga a pasar por la API igualmente. Y los productos no admiten campos propios.</p>
+        <p>Eso significa que garaje, piscina y número de baños quedarían escritos dentro del texto de la descripción, no como datos, y el filtro nativo de la tienda solo sabe de precio y disponibilidad. Como es exactamente así como la gente busca casa, construimos el listado a medida. Son unos <strong>490 $ más de coste</strong> y a cambio el filtro funciona de verdad y no queda rastro de carrito ni de checkout en el sitio.</p>
       </div>
     </div>
   </div>
@@ -360,23 +354,23 @@
   <div class="pt-section" id="s3">
     <div class="pt-wrap">
       <span class="pt-num">03</span>
-      <h2>Las páginas de tu web</h2>
+      <h2>Las páginas del sitio</h2>
       <p>Estas son todas. Si una página no está en esta tabla, no está incluida.</p>
       <div class="pt-tablewrap">
         <table class="pt-t">
           <thead><tr><th>Página</th><th>Qué lleva</th></tr></thead>
           <tbody>
-            <tr><td>Inicio</td><td>Tu nombre y tu trayectoria, propiedades destacadas, acceso al listado, bloque para quien quiere vender, y contacto</td></tr>
+            <tr><td>Inicio</td><td>Su nombre y su trayectoria, propiedades destacadas, acceso al listado, bloque de captación y contacto</td></tr>
             <tr><td>Propiedades</td><td>El listado completo: rejilla, buscador, orden y filtros por precio, zona, garaje, piscina y número de baños</td></tr>
-            <tr><td>Ficha de propiedad</td><td>Galería de fotos, precio y zona, características, descripción, situación, botón de solicitar visita y WhatsApp</td></tr>
-            <tr><td>Sobre mí</td><td>Tus veinte años. Es la página que hace que quien busque tu nombre llegue hasta ti</td></tr>
-            <tr><td>Vende tu propiedad</td><td>Por qué vender contigo, y formulario de valoración gratuita</td></tr>
-            <tr><td>Contacto</td><td>Formulario, WhatsApp y calendario para agendar directamente</td></tr>
-            <tr><td>Alta de propiedad</td><td>Tu página privada para subir y editar viviendas. Explicada en el punto 05</td></tr>
+            <tr><td>Ficha de propiedad</td><td>Galería, precio y zona, características, descripción, situación, solicitar visita y WhatsApp</td></tr>
+            <tr><td>Sobre mí</td><td>Sus veinte años. Es la página que resuelve el problema de fondo: que quien busque su nombre llegue a ella</td></tr>
+            <tr><td>Vende tu propiedad</td><td>Captación de inventario, con formulario de valoración</td></tr>
+            <tr><td>Contacto</td><td>Formulario, WhatsApp y calendario</td></tr>
+            <tr><td>Alta de propiedad</td><td>Su página privada para subir y editar viviendas. Detallada en el punto 05</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Además maquetamos y publicamos el <strong>aviso legal, la política de privacidad y la política de cookies</strong> sin coste de diseño. Los textos los tiene que redactar tu asesor legal, no nosotros.</p>
+      <p>Aviso legal, política de privacidad y política de cookies se maquetan y publican <strong>sin cargo de diseño</strong>. Los textos los redacta su asesor legal, no nosotros.</p>
       <p>Cada página incluye <strong>dos rondas de revisión</strong> de diseño.</p>
     </div>
   </div>
@@ -385,8 +379,8 @@
   <div class="pt-section pt-section--paper" id="s4">
     <div class="pt-wrap">
       <span class="pt-num">04</span>
-      <h2>La ficha de cada propiedad</h2>
-      <p>Cada vivienda guarda estos datos. Los tres marcados son los que nos pediste expresamente, y son los que hacen que el filtro del listado funcione:</p>
+      <h2>La ficha de propiedad</h2>
+      <p>Cada vivienda guarda estos datos. Los tres marcados son los que Irene pidió expresamente, y son los que hacen funcionar el filtro del listado:</p>
       <div class="pt-fields">
         <span class="pt-chip">Referencia</span>
         <span class="pt-chip">Título</span>
@@ -404,10 +398,10 @@
         <span class="pt-chip">Certificado energético</span>
         <span class="pt-chip">Propietario</span>
       </div>
-      <p><strong>Estado</strong> es el que controla qué se ve: borrador, publicada, reservada, vendida o retirada. Cuando marcas una como vendida desaparece del listado, pero no se borra — te queda el histórico de lo que has cerrado.</p>
-      <p><strong>Propietario</strong> enlaza la vivienda con la persona que te la encargó, así que desde su ficha ves siempre qué inmuebles suyos llevas.</p>
+      <p><strong>Estado</strong> controla qué se ve: borrador, publicada, reservada, vendida o retirada. Al marcar una como vendida desaparece del listado pero no se borra, así le queda el histórico.</p>
+      <p><strong>Propietario</strong> enlaza la vivienda con quien se la encargó, para ver desde su ficha qué inmuebles suyos lleva.</p>
       <div class="pt-note">
-        <p>Los campos que no marcamos arriba son nuestra propuesta de partida. En la reunión de revisión los repasamos contigo: si sobra alguno o falta alguno de los que usas a diario, se ajusta antes de construir nada.</p>
+        <p>Los campos no marcados son nuestra propuesta de partida, no algo que ella haya pedido. Conviene repasarlos con ella en la reunión de revisión: si sobra o falta alguno, se ajusta antes de construir nada.</p>
       </div>
     </div>
   </div>
@@ -416,15 +410,15 @@
   <div class="pt-section" id="s5">
     <div class="pt-wrap">
       <span class="pt-num">05</span>
-      <h2>Cómo subes, editas y retiras una propiedad</h2>
-      <p class="pt-lead">Lo haces tú, desde una página tuya, sin depender de nadie y sin tocar nada técnico.</p>
+      <h2>Cómo carga ella las propiedades</h2>
+      <p class="pt-lead">En autoservicio, desde una página suya, sin depender de nosotros y sin tocar nada técnico. Es lo que evita que la carga de fichas se convierta en trabajo manual recurrente del equipo.</p>
       <ol class="pt-steps">
-        <li><b>Entras en tu página de alta</b>Está dentro de tu propio dominio, en una dirección que no aparece en el menú ni sale en Google. Solo la tienes tú.</li>
-        <li><b>Rellenas el formulario</b>Los datos de la vivienda paso a paso, y arrastras las fotos.</li>
-        <li><b>Se publica sola</b>El sistema prepara las fotos, crea la ficha y la mete en el listado. No hay que avisar a nadie ni esperar a que lo hagamos nosotros.</li>
-        <li><b>Para editarla, el mismo formulario</b>Pones la referencia de la vivienda y actualizas lo que sea: bajada de precio, fotos nuevas, o marcarla como vendida para que salga del listado.</li>
+        <li><b>Entra en su página de alta</b>Dentro de su propio dominio, en una dirección que no aparece en el menú ni se indexa.</li>
+        <li><b>Rellena el formulario</b>Los datos de la vivienda paso a paso, y arrastra las fotos.</li>
+        <li><b>Se publica sola</b>El sistema prepara las fotos, crea la ficha y la mete en el listado, sin intervención nuestra.</li>
+        <li><b>Para editar, el mismo formulario</b>Con la referencia de la vivienda actualiza lo que sea: bajada de precio, fotos nuevas, o marcarla como vendida.</li>
       </ol>
-      <p>En la formación cargamos juntas <strong>las cinco primeras propiedades</strong>, y en esa misma sesión subes tú una sexta de principio a fin. A partir de ahí es tuyo.</p>
+      <p>En la formación se cargan <strong>las cinco primeras propiedades</strong> y ella da de alta una sexta de principio a fin. A partir de ahí es suyo.</p>
     </div>
   </div>
 
@@ -432,15 +426,15 @@
   <div class="pt-section pt-section--paper" id="s6">
     <div class="pt-wrap">
       <span class="pt-num">06</span>
-      <h2>Tu CRM</h2>
+      <h2>El CRM</h2>
       <p>Dos circuitos, porque captar una vivienda y vender a un comprador no se parecen en nada:</p>
       <h3>Captación de viviendas</h3>
       <p>Nuevo propietario → Valoración agendada → Mandato firmado → Publicada → Vendida o perdida</p>
-      <p>Es el circuito de tu problema real. Cada propietario que pide una valoración entra aquí y no se queda en un correo sin contestar.</p>
+      <p>Es el circuito de su problema real. Cada propietario que pide valoración entra aquí y no se queda en un correo sin contestar.</p>
       <h3>Compradores</h3>
       <p>Nuevo lead → Cualificado → Visita agendada → Oferta o reserva → Cerrado</p>
-      <p>Con lo que busca cada uno: zona, presupuesto, habitaciones, si necesita garaje o piscina. Eso es lo que después permite avisar al comprador adecuado cuando entra la vivienda que encaja.</p>
-      <p>Y dos vistas preparadas para el día a día: <strong>propiedades publicadas</strong> y <strong>visitas de esta semana</strong>.</p>
+      <p>Con lo que busca cada uno: zona, presupuesto, habitaciones, garaje, piscina. Eso es lo que después permite avisar al comprador adecuado cuando entra la vivienda que encaja.</p>
+      <p>Y dos vistas preparadas: <strong>propiedades publicadas</strong> y <strong>visitas de esta semana</strong>.</p>
     </div>
   </div>
 
@@ -448,24 +442,25 @@
   <div class="pt-section" id="s7">
     <div class="pt-wrap">
       <span class="pt-num">07</span>
-      <h2>Lo que funciona solo</h2>
-      <p>Seis automatizaciones. Estas y no más — cualquier otra se cotiza aparte.</p>
+      <h2>Las automatizaciones</h2>
+      <p>Seis. Estas y no más — cualquier otra se cotiza aparte.</p>
       <div class="pt-tablewrap">
         <table class="pt-t">
           <thead><tr><th>Cuándo salta</th><th>Qué hace</th></tr></thead>
           <tbody>
-            <tr><td>Alguien te escribe desde la web</td><td>Registra de dónde vino, lo mete en compradores, te avisa y le contesta al momento</td></tr>
-            <tr><td>Alguien pide visitar una vivienda</td><td>Vincula esa persona con esa propiedad concreta, te avisa con la referencia y le manda el enlace para agendar</td></tr>
-            <tr><td>Alguien pide una valoración</td><td>Entra en captación con aviso prioritario, porque eso es inventario, y recibe tu calendario</td></tr>
-            <tr><td>Marcas un contacto como particular a prospectar</td><td>Lanza la secuencia de contacto y seguimiento, con opción de darse de baja en cada mensaje</td></tr>
-            <tr><td>Subes o actualizas una propiedad</td><td>Prepara las fotos, publica la ficha y actualiza el listado</td></tr>
-            <tr><td>Se agenda una visita</td><td>Confirma por email y SMS, recuerda 24 horas y 2 horas antes, envía la ficha y te avisa el día de la visita</td></tr>
+            <tr><td>Alguien escribe desde la web</td><td>Registra el origen, lo mete en compradores, avisa a Irene y contesta al momento</td></tr>
+            <tr><td>Alguien pide visitar una vivienda</td><td>Vincula la persona con esa propiedad concreta, avisa con la referencia y manda el enlace para agendar</td></tr>
+            <tr><td>Alguien pide una valoración</td><td>Entra en captación con aviso prioritario, porque eso es inventario, y recibe el calendario</td></tr>
+            <tr><td>Marca un contacto como particular a prospectar</td><td>Lanza la secuencia de contacto y seguimiento, con baja en cada mensaje</td></tr>
+            <tr><td>Sube o actualiza una propiedad</td><td>Prepara las fotos, publica la ficha y actualiza el listado</td></tr>
+            <tr><td>Se agenda una visita</td><td>Confirma por email y SMS, recuerda 24 h y 2 h antes, envía la ficha y avisa el día de la visita</td></tr>
           </tbody>
         </table>
       </div>
       <div class="pt-note">
-        <p><strong>Sobre la idea de buscar particulares en Idealista automáticamente.</strong> Lo miramos en serio, y hay que decirlo claro: las condiciones de uso de Idealista prohíben expresamente extraer sus anuncios con fines comerciales, y recoger nombres y teléfonos de particulares para escribirles en frío tiene implicaciones de protección de datos que no queremos que recaigan sobre tu agencia recién montada.</p>
-        <p>Lo que sí hacemos es la parte que de verdad aporta valor: <strong>el seguimiento</strong>. Tú marcas el particular que hayas encontrado y el sistema se encarga del contacto, de los reintentos y de no perderlo. Y para conseguir viviendas de forma sostenida, la vía es la campaña del punto 13 — anunciarte a quien quiere vender.</p>
+        <p><strong>Sobre la automatización de Idealista.</strong> La que ella iba a contratar por 50 €/mes no la podemos vender como entregable, y conviene que lo sepas antes de hablarlo con ella. Las condiciones de uso de Idealista prohíben expresamente extraer sus anuncios con fines comerciales sin permiso escrito, y recoger nombres y teléfonos de particulares para escribirles en frío añade un problema de protección de datos sobre una agencia recién constituida.</p>
+        <p>Lo que sí entra es la parte que aporta el valor: <strong>el seguimiento</strong>. Ella marca el particular que haya encontrado y el sistema se encarga del contacto, los reintentos y no perderlo. Para conseguir viviendas de forma sostenida, la vía es la opción C del punto 13.</p>
+        <p>Dicho de otro modo: esos 50 €/mes compran sobre todo que el riesgo técnico y legal lo asuma un tercero.</p>
       </div>
     </div>
   </div>
@@ -475,13 +470,13 @@
     <div class="pt-wrap">
       <span class="pt-num">08</span>
       <h2>Qué no incluye</h2>
-      <p>Esta sección es tan importante como las anteriores. Nada de lo de aquí abajo está en el precio. Que esté fuera no significa que no podamos hacerlo: significa que tiene su propio precio y su propio plazo.</p>
+      <p>Esta sección es tan importante como las anteriores: es la que define el límite. Nada de lo de aquí abajo está en el precio, y todo se puede cotizar aparte.</p>
       <div class="pt-out">
         <div>
           <h4>Portales</h4>
           <ul>
             <li>Publicar en Idealista, Fotocasa o Habitaclia</li>
-            <li>Envío automático de tu catálogo a portales</li>
+            <li>Envío automático del catálogo a portales</li>
             <li>MLS e IDX</li>
             <li>Extracción automática de anuncios</li>
           </ul>
@@ -536,11 +531,11 @@
       <span class="pt-num">09</span>
       <h2>Cómo se pide un cambio</h2>
       <ol class="pt-steps">
-        <li><b>Nos lo pides por escrito</b>Un mensaje basta. Que quede registrado.</li>
-        <li><b>Te contestamos en 48 horas hábiles</b>Con lo que cuesta y si mueve la fecha de entrega.</li>
-        <li><b>Lo hacemos cuando nos das el visto bueno</b>No antes, para que nunca te llegue una factura que no esperabas.</li>
+        <li><b>Se pide por escrito</b>Un mensaje basta, pero que quede registrado.</li>
+        <li><b>Contestamos en 48 horas hábiles</b>Con lo que cuesta y si mueve la fecha de entrega.</li>
+        <li><b>Se ejecuta con el visto bueno por escrito</b>Nunca antes.</li>
       </ol>
-      <p>No volvemos a cobrarte el proyecto: te cobramos el cambio.</p>
+      <p>No se vuelve a cobrar el proyecto: se cobra el cambio.</p>
     </div>
   </div>
 
@@ -548,16 +543,16 @@
   <div class="pt-section pt-section--paper" id="s10">
     <div class="pt-wrap">
       <span class="pt-num">10</span>
-      <h2>Qué necesitamos de ti</h2>
-      <p>Sin esto el proyecto se para, así que mejor tenerlo antes de empezar:</p>
+      <h2>Qué necesitamos de Irene</h2>
+      <p>Sin esto el proyecto se para, así que conviene recabarlo antes de arrancar:</p>
       <ul>
-        <li>Tu logo y tu marca en formato editable</li>
+        <li>Su logo y su marca en formato editable</li>
         <li>Las fotos de las propiedades</li>
         <li>Las descripciones de las viviendas</li>
-        <li>Los textos legales, redactados por tu asesor</li>
+        <li>Los textos legales, redactados por su asesor</li>
         <li>El dominio contratado y acceso a su panel</li>
-        <li>Tu WhatsApp Business y tu correo corporativo</li>
-        <li>Un rato tuyo para validar cada entrega en plazo</li>
+        <li>Su WhatsApp Business y su correo corporativo</li>
+        <li>Disponibilidad para validar cada entrega en plazo</li>
       </ul>
     </div>
   </div>
@@ -566,14 +561,14 @@
   <div class="pt-section" id="s11">
     <div class="pt-wrap">
       <span class="pt-num">11</span>
-      <h2>Suscripciones a tu cargo</h2>
-      <p>Lo decimos claro para que «todo incluido» no signifique lo que no significa. Estas cuotas van a tu nombre y no están dentro del precio de implantación:</p>
+      <h2>Suscripciones a su cargo</h2>
+      <p>No están dentro del precio de implantación y van a nombre de la clienta:</p>
       <ul>
-        <li>La plataforma donde vive tu CRM y tu web</li>
-        <li>Tu dominio</li>
+        <li>La subcuenta de la plataforma donde viven el CRM y el sitio</li>
+        <li>El dominio</li>
         <li>El motor de automatizaciones</li>
         <li>WhatsApp y telefonía</li>
-        <li>El envío de correos</li>
+        <li>El envío de correo</li>
       </ul>
     </div>
   </div>
@@ -582,16 +577,16 @@
   <div class="pt-section pt-section--paper" id="s12">
     <div class="pt-wrap">
       <span class="pt-num">12</span>
-      <h2>Cuándo está listo</h2>
-      <p>Sabemos que corre prisa porque quieres la dirección en tus tarjetas. Damos la fecha cerrada en la reunión de revisión, cuando confirmemos contigo los detalles del punto 04 — antes sería inventárnosla.</p>
-      <p>Lo que sí podemos comprometer es el orden: <strong>primero lo que te hace localizable</strong> —inicio, sobre ti y contacto, publicadas en tu dominio— y después el listado y las automatizaciones. Así puedes mandar a imprimir las tarjetas sin esperar a que esté todo.</p>
-      <h3>Damos la Fase 1 por entregada cuando</h3>
+      <h2>Entrega</h2>
+      <p>La fecha cerrada la damos tras la reunión de revisión, cuando estén confirmados los campos del punto 04. Antes sería inventárnosla.</p>
+      <p>Lo que sí se puede comprometer es el orden: <strong>primero lo que la hace localizable</strong> —inicio, sobre ella y contacto, publicadas en su dominio— y después el listado y las automatizaciones. Así puede mandar a imprimir las tarjetas sin esperar a que esté todo.</p>
+      <h3>La Fase 1 se da por entregada cuando</h3>
       <ul>
-        <li>Las siete páginas están publicadas en tu dominio, con certificado de seguridad</li>
+        <li>Las siete páginas están publicadas en su dominio con certificado SSL</li>
         <li>Hay cinco propiedades cargadas y visibles, con sus fotos</li>
-        <li>Tú das de alta una sexta por ti misma durante la formación</li>
-        <li>Las seis automatizaciones se han probado de principio a fin</li>
-        <li>Has recibido las dos sesiones de formación</li>
+        <li>Ella da de alta una sexta por sí misma durante la formación</li>
+        <li>Las seis automatizaciones se han probado de punta a punta</li>
+        <li>Se han impartido las dos sesiones de formación</li>
       </ul>
     </div>
   </div>
@@ -600,32 +595,32 @@
   <div class="pt-section" id="s13">
     <div class="pt-wrap">
       <span class="pt-num">13</span>
-      <h2>Para más adelante</h2>
-      <p>No hace falta decidirlo ahora, y no está incluido en el precio. Lo ponemos para que sepas que existe y cuánto costaría cuando lo quieras.</p>
+      <h2>Opciones de Fase 2</h2>
+      <p>Fuera del precio cerrado. Los importes son marginales sobre una Fase 1 ya construida: las bases de módulo están pagadas, así que cotizarlas sueltas saldría bastante más caro.</p>
 
       <div class="pt-opt">
         <div class="pt-opt-head">
           <h3>A · Avisar al comprador que encaja</h3>
-          <span class="pt-optprice">PON_AQUI_PRECIO_A</span>
+          <span class="pt-optprice">300 €</span>
         </div>
-        <p>Cada comprador guarda lo que busca. Cuando subes una vivienda que encaja con lo que pidió, se le avisa solo. Es el complemento natural de tener compradores y poco inventario: hace que cada alta trabaje sobre la cartera que ya tienes.</p>
+        <p>Cada comprador guarda lo que busca, y al subir una vivienda que encaja se le avisa solo. Es el complemento natural de tener cartera de compradores y poco inventario: hace que cada alta trabaje sobre lo que ya tiene.</p>
       </div>
 
       <div class="pt-opt">
         <div class="pt-opt-head">
           <h3>B · Reseñas</h3>
-          <span class="pt-optprice">PON_AQUI_PRECIO_B</span>
+          <span class="pt-optprice">250 €</span>
         </div>
-        <p>Tras cada firma se pide la reseña sola, y te avisa cuando llega. Refuerza justo tu problema de origen: que quien busque tu nombre te encuentre, y encuentre a gente hablando bien de ti.</p>
+        <p>Tras cada firma se pide la reseña sola y avisa cuando llega. Refuerza justo su problema de origen: que quien busque su nombre la encuentre, y encuentre a gente hablando bien de ella.</p>
       </div>
 
       <div class="pt-opt">
         <div class="pt-opt-head">
           <h3>C · Campañas para conseguir viviendas</h3>
-          <span class="pt-optprice">PON_AQUI_PRECIO_C</span>
+          <span class="pt-optprice">1.750 € + 170 €/mes</span>
         </div>
-        <p>Esta es la que resuelve la falta de inventario de forma sostenida. La idea, que ya funciona con otra inmobiliaria con la que trabajamos, es contraintuitiva: en vez de anunciarte a quien quiere comprar, te anuncias <strong>a quien quiere vender</strong>. A quien responde que quiere vender se le cualifica en detalle; a quien solo quiere comprar o alquilar se le deriva directo, sin gastar esfuerzo.</p>
-        <p>Incluye la puesta en marcha, el cualificador por WhatsApp, la página de valoración y los informes. <strong>No incluye la inversión publicitaria</strong>, que va directamente de tu cuenta a la plataforma.</p>
+        <p>Es la que resuelve la falta de inventario de forma sostenida, y la alternativa real a la idea de Idealista. El planteamiento, que ya funciona con otra inmobiliaria del equipo, es contraintuitivo: en vez de anunciarse a quien quiere comprar, se anuncia <strong>a quien quiere vender</strong>. A quien responde que quiere vender se le cualifica en detalle; a quien solo quiere comprar o alquilar se le deriva directo a un asesor, sin gastar esfuerzo.</p>
+        <p>Incluye puesta en marcha, cualificador por WhatsApp, página de valoración e informes. <strong>No incluye la inversión publicitaria</strong>, que va de la cuenta de la clienta a la plataforma.</p>
       </div>
     </div>
   </div>
@@ -639,29 +634,30 @@
       <div class="pt-prices">
         <div class="pt-price is-main">
           <div class="lab">Implantación</div>
-          <div class="val">PON_AQUI_PRECIO_IMPLANTACION</div>
+          <div class="val">4.550 €</div>
           <div class="note">Pago único</div>
         </div>
         <div class="pt-price">
           <div class="lab">Mantenimiento</div>
-          <div class="val">PON_AQUI_PRECIO_MENSUAL</div>
-          <div class="note">Empieza cuando tu web sale a producción</div>
+          <div class="val">175 €/mes</div>
+          <div class="note">Arranca cuando el sitio sale a producción</div>
         </div>
       </div>
-      <p>Para ponerlo en contexto con tus propios números: en tu zona no hay vivienda por debajo de 400.000 €, y la comisión es del 10 al 12%. Una sola operación al mínimo de tu zona son entre 40.000 y 48.000 € de comisión.</p>
-      <p>Esta propuesta tiene una validez de <strong>30 días</strong>.</p>
+      <p><strong>Estos son nuestros precios a Be Banana.</strong> El precio a Irene lo fijas tú: este documento no está pensado para reenviárselo tal cual.</p>
+      <p>Para cuando lo hables con ella: en su zona no hay vivienda por debajo de 400.000 € y la comisión es del 10 al 12%, así que una sola operación al mínimo de su zona son entre 40.000 y 48.000 € de comisión. Es aritmética con sus propias cifras, y es el argumento con el que se defiende cualquier precio aquí.</p>
+      <p>Validez de esta cotización: <strong>30 días</strong>.</p>
       <div style="margin-top:32px">
-        <a href="PON_AQUI_LINK_CALENDARIO" class="pt-cta" target="_blank" rel="noopener">Agendar la reunión de revisión →</a>
+        <a href="PON_AQUI_LINK_CALENDARIO" class="pt-cta" target="_blank" rel="noopener">Agendar la revisión del alcance →</a>
       </div>
-      <p style="margin-top:24px;font-size:13.5px">En esa reunión repasamos esto punto por punto. Si algo sobra, se quita; si falta algo que usas a diario, se añade y se ajusta el precio antes de firmar nada.</p>
+      <p style="margin-top:24px;font-size:13.5px">Queda una cifra por cerrar entre nosotros: los 1.200 $ de «listado y ficha a medida», que van dentro del total. Si se ajusta, se ajustan estos importes.</p>
     </div>
   </div>
 
   <!-- ══ FOOTER ══ -->
   <div class="pt-footer">
     <div class="pt-wrap">
-      <div><strong>Be Banana</strong></div>
-      <div>PON_AQUI_EMAIL · PON_AQUI_WEB</div>
+      <div><strong>Profit Technology</strong></div>
+      <div>contact@profit-technology.com · www.profit-technology.com</div>
     </div>
   </div>
 

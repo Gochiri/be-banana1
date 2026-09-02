@@ -94,7 +94,7 @@ OPCIONES["C · Campañas Meta de captación"] = {
 if __name__ == "__main__":
     import sys, pathlib
     sys.path.insert(0, str(pathlib.Path(__file__).parent))
-    from scope_fase1 import eur
+    from scope_fase1 import eur, precio_cliente_final, MARGEN_SONIA
 
     print("=" * 68)
     print("  FASE 2 — opciones, precio marginal sobre Fase 1")
@@ -107,13 +107,18 @@ if __name__ == "__main__":
         extra = o.get("nota")
         if extra:
             print(f"      ! {extra}")
-        linea = f"      -> ${o['setup']:,} setup"
+        linea = f"      -> nosotros: {eur(o['setup']):,} EUR"
         if o["mensual"]:
-            linea += f" / +${o['mensual']:,} al mes"
-        print(linea + f"   ({eur(o['setup']):,} EUR)")
+            linea += f" + {eur(o['mensual'], 5):,} EUR/mes"
+        linea += f"   |  Irene (ref.): {precio_cliente_final(o['setup']):,} EUR"
+        if o["mensual"]:
+            linea += f" + {precio_cliente_final(o['mensual'], 5):,} EUR/mes"
+        print(linea)
         tot_s += o["setup"]
         tot_m += o["mensual"]
     print("\n" + "=" * 68)
-    print(f"  Si se toman las tres: ${tot_s:,} setup / +${tot_m:,} al mes"
-          f"   ({eur(tot_s):,} EUR)")
+    print(f"  Las tres juntas -> nosotros: {eur(tot_s):,} EUR + {eur(tot_m, 5):,} EUR/mes")
+    print(f"  {'':>17} Irene (ref.): {precio_cliente_final(tot_s):,} EUR"
+          f" + {precio_cliente_final(tot_m, 5):,} EUR/mes")
+    print(f"  (margen de Sonia {MARGEN_SONIA:.0%})")
     print("=" * 68)

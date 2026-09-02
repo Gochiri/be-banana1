@@ -66,7 +66,12 @@ SITIO_PAGS_INCLUIDAS = 6
 SITIO_PAG_EXTRA = 200
 DESARROLLO_LISTADO_FICHA = 1200  # propuesto, a confirmar
 
-USD_A_EUR = 0.87  # declarado en la propuesta. A 2026-09-02 el spot era 0,8631.
+USD_A_EUR = 0.87  # declarado en la cotización. A 2026-09-02 el spot era 0,8631.
+
+# Margen que Sonia (Be Banana) añade encima de nuestro precio cuando cotiza a su
+# clienta final. NO aparece en el documento que le mandamos: es suyo. Se calcula
+# aquí solo como referencia interna de a cuánto le acaba saliendo a Irene.
+MARGEN_SONIA = 0.90
 
 
 def precio_sitio(paginas=PAGINAS_SITIO):
@@ -82,9 +87,19 @@ def lineas_fuera_de_tabla():
 
 
 def eur(usd, redondeo=50):
-    """Convierte a euros redondeando al alza al múltiplo indicado."""
+    """Nuestro precio a Be Banana, en euros, redondeado al alza."""
     import math
     return int(math.ceil(usd * USD_A_EUR / redondeo) * redondeo)
+
+
+def precio_cliente_final(usd, redondeo=50):
+    """Referencia interna: lo que pagaría Irene con el margen de Sonia encima.
+
+    El margen se aplica sobre el USD y se convierte y redondea UNA sola vez.
+    Redondear a euros y multiplicar después inflaría el precio por doble redondeo.
+    """
+    import math
+    return int(math.ceil(usd * (1 + MARGEN_SONIA) * USD_A_EUR / redondeo) * redondeo)
 
 
 if __name__ == "__main__":
@@ -117,7 +132,13 @@ if __name__ == "__main__":
     print(f"  {'TOTAL SETUP':.<46} ${total:>8,.0f}")
     print(f"  {'TOTAL MENSUAL':.<46} ${carte['mensual']:>8,.0f}")
     print("=" * 62)
-    print(f"  En euros a {USD_A_EUR}: {eur(total):,} EUR setup / {eur(carte['mensual'], 5):,} EUR mes")
+    mensual = carte["mensual"]
+    print(f"  {'':<24}{'NOSOTROS -> Be Banana':>24}{'Irene (ref.)':>16}")
+    print(f"  {'Implantación':<24}{str(eur(total)) + ' EUR':>24}"
+          f"{str(precio_cliente_final(total)) + ' EUR':>16}")
+    print(f"  {'Mensualidad':<24}{str(eur(mensual, 5)) + ' EUR':>24}"
+          f"{str(precio_cliente_final(mensual, 5)) + ' EUR':>16}")
+    print(f"  (tipo {USD_A_EUR} · margen de Sonia {MARGEN_SONIA:.0%}, solo referencia interna)")
     print()
     mejor = r["mejor_paquete"]
     print("  Paquetes (comparados solo sobre lo que sí cubre la tabla):")

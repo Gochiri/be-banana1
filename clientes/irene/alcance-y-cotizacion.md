@@ -140,36 +140,42 @@ pagadas. Venderlas a precio standalone sería cobrar dos veces la misma base.
 
 ---
 
-## Margen y precio final
+## Nuestro precio y el de Sonia
 
-El equipo pone el precio base. **Sonia define su margen aparte.**
+Dos documentos distintos, y conviene no mezclarlos:
 
-```
-  precio_cliente = base_equipo × (1 + margen)
-```
+- **`cotizacion-para-be-banana.html`** — lo que Profit Technology le cobra a Be Banana.
+  Es el que está construido y el que se envía. Va con marca Profit Technology.
+- **La propuesta de Sonia a Irene** — la monta ella, con su marca y su margen. No está en
+  este repo, y este documento no se le reenvía a Irene tal cual.
 
-| Margen | Implementación | Al mes |
-|---:|---:|---:|
-| 0% | 4.550 € | 175 € |
-| 20% | 5.460 € | 210 € |
-| 30% | 5.915 € | 230 € |
-| 50% | 6.825 € | 265 € |
-| 100% | 9.100 € | 350 € |
+**Margen de Sonia: 90%** (confirmado). Se aplica sobre el USD y se convierte y redondea una
+sola vez; redondear a euros y multiplicar después inflaría el precio por doble redondeo.
 
-### Las dos variantes
+| Concepto | USD | **Nosotros → Be Banana** | Irene (referencia) |
+|---|---:|---:|---:|
+| Fase 1 · implantación | 5.188 | **4.550 €** | 8.600 € |
+| Fase 1 · mantenimiento | 200 | **175 €/mes** | 335 €/mes |
+| Opción A · Matching | 318 | **300 €** | 550 € |
+| Opción B · Reseñas | 240 | **250 €** | 400 € |
+| Opción C · Campañas | 1.990 | **1.750 €** | 3.300 € |
+| Opción C · mantenimiento | 190 | **170 €/mes** | 315 €/mes |
 
-**Irene (socia).** Paga porcentaje de venta más un mínimo mensual, y sus propias
-suscripciones (H13). El margen puede ir en el mínimo mensual en lugar de en la
-implementación: con una comisión de 40.000-48.000 € por venta (H09, H10), tres meses de
-mínimo cubren de sobra la parte de Sonia sin tocar el precio de entrada.
+Reproducible: `python3 ../../ofertas/inmobiliaria-web-crm-v1/scope_fase1.py` imprime las dos
+columnas. La constante es `MARGEN_SONIA` en ese mismo archivo.
 
-**Segundo cliente (H14).** Precio completo: base más margen íntegro. No hay porcentaje de
-venta porque no se conoce su volumen.
+La columna de Irene es **solo referencia nuestra**: sirve para saber de qué cifras se está
+hablando cuando ella lo comente, no para ponerla en ningún documento.
 
-Ambos saben que se les presenta el mismo proyecto, así que **la diferencia de precio tiene
-que tener una razón que se pueda decir en voz alta**: Irene aporta recurrencia y
-porcentaje sobre ventas; el segundo cliente compra un proyecto cerrado. Conviene tenerlo
-pensado antes de que lo comparen.
+### El segundo cliente
 
-**En el HTML, los precios están en el bloque `PRECIOS` del principio del archivo.** Se
-cambian ahí y se propagan solos.
+Mismo alcance y mismo precio nuestro. Lo que cambie por encima es cosa de Sonia. Los dos
+clientes saben que se les presenta el mismo proyecto, así que si a ella le pone precios
+distintos conviene que la diferencia tenga una razón que se pueda decir en voz alta.
+
+Su cotización no está renderizada: falta su nombre y su marca.
+
+### Pendiente que mueve todos estos números
+
+Los **1.200 $ de «listado y ficha a medida»** siguen sin confirmar y van dentro de los
+5.188 $. Si se ajusta esa línea, se ajusta toda la tabla de arriba.
